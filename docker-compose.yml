@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  api:
+    build: 
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: demo-dokku.api
+    ports:
+      - 80:80
+    volumes:
+      - ./api:/app
+    tty:
+      true
+  batch:
+    build: 
+      context: ./batch
+      dockerfile: Dockerfile
+    container_name: demo-dokku.batch
+    volumes:
+      - ./batch:/app
+    tty:
+      true
